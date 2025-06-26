@@ -1,0 +1,195 @@
+{
+  "contentTypes": {
+    "menu-category": {
+      "kind": "collectionType",
+      "collectionName": "menu_categories",
+      "info": {
+        "singularName": "menu-category",
+        "pluralName": "menu-categories",
+        "displayName": "Menu Category"
+      },
+      "options": {
+        "draftAndPublish": true
+      },
+      "attributes": {
+        "name": {
+          "type": "string",
+          "required": true
+        },
+        "description": {
+          "type": "text"
+        },
+        "order": {
+          "type": "integer",
+          "default": 0
+        },
+        "dishes": {
+          "type": "relation",
+          "relation": "oneToMany",
+          "target": "api::dish.dish",
+          "mappedBy": "category"
+        }
+      }
+    },
+    "dish": {
+      "kind": "collectionType",
+      "collectionName": "dishes",
+      "info": {
+        "singularName": "dish",
+        "pluralName": "dishes",
+        "displayName": "Dish"
+      },
+      "options": {
+        "draftAndPublish": true
+      },
+      "attributes": {
+        "name": {
+          "type": "string",
+          "required": true
+        },
+        "description": {
+          "type": "text",
+          "required": true
+        },
+        "price": {
+          "type": "decimal",
+          "required": true
+        },
+        "ingredients": {
+          "type": "json"
+        },
+        "dietary": {
+          "type": "json"
+        },
+        "originLink": {
+          "type": "string"
+        },
+        "image": {
+          "type": "media",
+          "multiple": false,
+          "required": false,
+          "allowedTypes": ["images"]
+        },
+        "category": {
+          "type": "relation",
+          "relation": "manyToOne",
+          "target": "api::menu-category.menu-category",
+          "inversedBy": "dishes"
+        },
+        "available": {
+          "type": "boolean",
+          "default": true
+        }
+      }
+    },
+    "activity": {
+      "kind": "collectionType",
+      "collectionName": "activities",
+      "info": {
+        "singularName": "activity",
+        "pluralName": "activities",
+        "displayName": "Activity"
+      },
+      "options": {
+        "draftAndPublish": true
+      },
+      "attributes": {
+        "title": {
+          "type": "string",
+          "required": true
+        },
+        "description": {
+          "type": "text",
+          "required": true
+        },
+        "date": {
+          "type": "date",
+          "required": true
+        },
+        "time": {
+          "type": "time",
+          "required": true
+        },
+        "maxParticipants": {
+          "type": "integer"
+        },
+        "currentParticipants": {
+          "type": "integer",
+          "default": 0
+        },
+        "price": {
+          "type": "decimal"
+        },
+        "image": {
+          "type": "media",
+          "multiple": false,
+          "required": false,
+          "allowedTypes": ["images"]
+        }
+      }
+    },
+    "reservation": {
+      "kind": "collectionType",
+      "collectionName": "reservations",
+      "info": {
+        "singularName": "reservation",
+        "pluralName": "reservations",
+        "displayName": "Reservation"
+      },
+      "options": {
+        "draftAndPublish": true
+      },
+      "attributes": {
+        "name": {
+          "type": "string",
+          "required": true
+        },
+        "email": {
+          "type": "email",
+          "required": true
+        },
+        "phone": {
+          "type": "string"
+        },
+        "people": {
+          "type": "integer",
+          "required": true
+        },
+        "date": {
+          "type": "date",
+          "required": true
+        },
+        "time": {
+          "type": "time",
+          "required": true
+        },
+        "tableNumber": {
+          "type": "integer"
+        },
+        "specialRequests": {
+          "type": "text"
+        },
+        "status": {
+          "type": "enumeration",
+          "enum": ["confirmed", "pending", "cancelled"],
+          "default": "pending"
+        },
+        "cancellationToken": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "setup_instructions": {
+    "1": "Install Strapi: npm create strapi-app@latest np-restaurant-backend --quickstart",
+    "2": "Navigate to admin panel: http://localhost:1337/admin",
+    "3": "Create admin user",
+    "4": "Create content types using the Content-Type Builder with the schemas above",
+    "5": "Set permissions in Settings > Users & Permissions Plugin > Roles > Public",
+    "6": "Allow find and findOne for all content types",
+    "7": "Allow create for reservations",
+    "8": "For authenticated users, allow full CRUD on content types",
+    "9": "Add sample data through the admin panel",
+    "10": "Configure CORS in config/middlewares.js to allow frontend domain"
+  }
+}
