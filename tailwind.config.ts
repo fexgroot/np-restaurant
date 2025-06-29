@@ -1,4 +1,4 @@
-import type { Config } from "tailwindcss"
+import type { Config } from "tailwindcss";
 
 const config: Config = {
   darkMode: ["class"],
@@ -20,7 +20,6 @@ const config: Config = {
     },
     extend: {
       colors: {
-        // NP-Restaurant Brand Colors
         brand: {
           gold: "#F2BB16",
           "gold-dark": "#D99311",
@@ -84,6 +83,6 @@ const config: Config = {
     },
   },
   plugins: [require("tailwindcss-animate")],
-} satisfies Config
+} satisfies Config;
 
-export default config
+export default config;
