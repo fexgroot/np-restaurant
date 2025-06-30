@@ -118,13 +118,19 @@ export function ReserverenModal() {
       return;
     }
     try {
-      // Save reservation to backend
+      // Genereer unieke 4-cijferige code
+      function generateRandomCode() {
+        return Math.floor(1000 + Math.random() * 9000);
+      }
+      let code = generateRandomCode();
+      // Stuur code mee in de body
       const res = await fetch("/api/reservations", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ...reservationData,
           table: selectedTable,
+          code,
         }),
       });
       if (!res.ok) throw new Error("Failed to save reservation");

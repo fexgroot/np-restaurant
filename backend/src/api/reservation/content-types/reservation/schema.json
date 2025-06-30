@@ -28,6 +28,10 @@
     },
     "table": {
       "type": "integer"
+    },
+    "code": {
+      "type": "integer",
+      "unique": true
     }
   }
 }

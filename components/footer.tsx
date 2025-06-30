@@ -92,16 +92,7 @@ export function Footer() {
         </div>
 
         <div className="border-t border-brand-gold/20 mt-8 pt-8 text-center">
-          <p className="text-gray-400">
-            &copy; 2024 NP-Restaurant. Alle rechten voorbehouden. |
-            <Link href="/privacy" className="text-brand-gold hover:text-brand-gold-dark ml-2">
-              Privacy Policy
-            </Link>{" "}
-            |
-            <Link href="/terms" className="text-brand-gold hover:text-brand-gold-dark ml-2">
-              Algemene Voorwaarden
-            </Link>
-          </p>
+          <p className="text-gray-400">&copy; 2024 NP-Restaurant. All rigts reserved.</p>
         </div>
       </div>
     </footer>

@@ -12,7 +12,6 @@ const navigationItems = [
   { name: "Menu", href: "/menu" },
   { name: "Activiteiten", href: "/activiteiten" },
   { name: "Contact", href: "/contact" },
-  { name: "Over Ons", href: "/over-ons" },
 ];
 
 export function Navigation() {
