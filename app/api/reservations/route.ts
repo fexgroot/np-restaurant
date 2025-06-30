@@ -57,8 +57,15 @@ export async function GET(req: NextRequest) {
 
 export async function POST(req: NextRequest) {
   try {
+    const userAgent = req.headers.get("user-agent") || "";
+    if (userAgent.toLowerCase().includes("bot")) {
+      return NextResponse.json({ error: "Bots niet toegestaan" }, { status: 403 });
+    }
     const body = await req.json();
     const { name, email, phone, people, date, time, table, code } = body;
+    if (!name || !email) {
+      return NextResponse.json({ error: "Naam en e-mail zijn verplicht" }, { status: 400 });
+    }
     const isoDate = toStrapiDateTime(date, time);
     if (!isoDate) {
       return NextResponse.json({ error: "Invalid date or time" }, { status: 400 });
