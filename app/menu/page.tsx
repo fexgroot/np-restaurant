@@ -76,13 +76,8 @@ export default function MenuPage() {
   const [dishes, setDishes] = useState<Dish[]>([]);
 
   useEffect(() => {
-    // Simulate API call to Strapi
     const fetchDishes = async () => {
       try {
-        // In real app: const response = await fetch('http://localhost:1337/api/dishes?populate=*')
-        // const data = await response.json()
-
-        // Mock delay
         await new Promise((resolve) => setTimeout(resolve, 1000));
         setDishes(mockDishes);
       } catch (error) {

@@ -38,14 +38,6 @@ export default function ContactPage() {
     setIsSubmitting(true);
 
     try {
-      // In real app: send to backend/email service
-      // await fetch('/api/contact', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify(formData)
-      // })
-
-      // Mock delay
       await new Promise((resolve) => setTimeout(resolve, 1500));
 
       toast({
@@ -114,14 +106,6 @@ export default function ContactPage() {
                       <p className="font-semibold text-brand-brown">Algemene vragen:</p>
                       <p className="text-gray-600">info@np-restaurant.nl</p>
                     </div>
-                    <div>
-                      <p className="font-semibold text-brand-brown">Reserveringen:</p>
-                      <p className="text-gray-600">reserveringen@np-restaurant.nl</p>
-                    </div>
-                    <div>
-                      <p className="font-semibold text-brand-brown">Activiteiten:</p>
-                      <p className="text-gray-600">activiteiten@np-restaurant.nl</p>
-                    </div>
                   </div>
                 </CardContent>
               </Card>
@@ -142,12 +126,6 @@ export default function ContactPage() {
                       1234 AB Groningen
                       <br />
                       Nederland
-                    </p>
-                  </div>
-                  <div className="mt-4">
-                    <p className="text-sm text-gray-600">
-                      Gelegen in het hart van Groningen, op 2 minuten lopen van het Centraal Station. Openbaar vervoer
-                      en parkeergarages in de buurt.
                     </p>
                   </div>
                 </CardContent>
@@ -175,7 +153,6 @@ export default function ContactPage() {
                       <span className="text-brand-brown font-semibold">16:00 - 21:00</span>
                     </div>
                   </div>
-                  <p className="text-sm text-gray-600 mt-4">Keuken sluit 30 minuten voor sluitingstijd</p>
                 </CardContent>
               </Card>
             </div>

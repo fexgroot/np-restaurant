@@ -6,7 +6,6 @@ import { Badge } from "@/components/ui/badge";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
 
-// Mock data - in real app, this would come from Strapi
 const featuredDish = {
   id: 1,
   name: "Signature Beef Burger",
