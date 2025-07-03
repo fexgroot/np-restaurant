@@ -118,12 +118,11 @@ export function ReserverenModal() {
       return;
     }
     try {
-      // Genereer unieke 4-cijferige code
+      // generate code
       function generateRandomCode() {
         return Math.floor(1000 + Math.random() * 9000);
       }
       let code = generateRandomCode();
-      // Stuur code mee in de body
       const res = await fetch("/api/reservations", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -440,7 +439,7 @@ export function ReserverenModal() {
           }
         }}
       >
-        <DialogContent className="sm:max-w-[500px]">
+        <DialogContent className="sm:max-w-[500px]" tabIndex={-1}>
           <DialogHeader>
             <DialogTitle className="text-brand-brown">Maak een reservering</DialogTitle>
             <DialogDescription>Stap {step} van 4</DialogDescription>
